@@ -8,7 +8,7 @@ public class FileController {
     private FileController(){};
 
     public static void saveData(String fileName, String result){
-        writeToFile(fileName, result);
+        writeToFile(fileName, result, false);
     }
 
     public static void saveSize(String fileName, ArrayList<Integer> size){
@@ -52,7 +52,6 @@ public class FileController {
         try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
             String text;
             int i = 0;
-            text = reader.readLine();
             while ((text = reader.readLine()) != null) {
 //                split "1.1 0.1"
                 String[] parts = text.split(" ");

@@ -8,8 +8,8 @@ public class Main {
     public static void main(String[] args) {
 
 //        task1();
-//        task2();
-        task3();
+        task2();
+//        task3();
 //        task4();
     }
 
@@ -36,20 +36,19 @@ public class Main {
     public static void task2(){
         System.out.println("Task 2: ");
         ArrayList<Matrix> matrices = FileController.loadMatrices("in_2.txt");
+        ArrayList<Double> range = FileController.loadData("in_2_parameters.txt");
 
+        if (matrices == null) {
+            FileController.saveData("out_2.txt", "Error occurred while reading data");
+            return;
+        }
+        StringBuilder resStr = new StringBuilder();
         for (Matrix matrix : matrices){
             System.out.println(matrix);
+            resStr.append(Arrays.toString(matrix.getSumAndAmount(range.get(0), range.get(1))));
+            resStr.append('\n');
         }
-//        TODO спроси как обрабатывать матрицы: отдельно или вместе
-        Matrix matrix = new Matrix();
-        matrix.generateMatrix(8, 6, 0, 5);
-
-        Matrix matrix1, matrix2;
-
-        System.out.println(matrix);
-        System.out.println(Arrays.toString(matrix.getSumAndAmount(1., 1.)));
-
-        FileController.saveData("out_2.txt", Arrays.toString(matrix.getSumAndAmount(1., 1.)));
+        FileController.saveData("out_2.txt", resStr.toString());
     }
 
     public static void task3(){
@@ -79,6 +78,7 @@ public class Main {
 
         System.out.println("Task 4:");
         ArrayList<Double> data4 = new ArrayList<>();
+//        дані (x1, y1, x2, x3, y3):
         data4 = FileController.loadDoubles("in_4.txt");
         System.out.println(data4);
 

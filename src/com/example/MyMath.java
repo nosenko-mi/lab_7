@@ -36,8 +36,7 @@ public class MyMath {
         return sqrtRoot;
     }
 
-    public static double cos(double x)
-    {
+    public static double cos(double x) {
         double cos = 1;
         for(int i=2,j=1;i<20;i=i+2,j++)
         {
@@ -46,8 +45,7 @@ public class MyMath {
         return cos;
     }
 
-    public static double sin(double x)
-    {
+    public static double sin(double x) {
         double sin = 0;
         for(int i=0, j=0; i<20; i=i+2, j++)
         {
